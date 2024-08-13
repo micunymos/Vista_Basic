@@ -6,6 +6,8 @@ echo ---------------------------
 echo Please use a console with default settings, to run Micunymos Vista, because all images are made with ASCII art.
 echo The default console font is Consolas, at the size of 16 pixels.
 echo ---------------------------
+echo DO NOT DOWNLOAD MICUNYMOS VISTA DEVELOPER KIT, IT IS UNUSABLE
+echo ---------------------------
 echo IMPORTANT NOTE: Micunymos Vista Basic, and Professional are not compatible with Windows 11 stably,
 echo                 due to visual differences between Windows 10, and 11.
 echo ---------------------------

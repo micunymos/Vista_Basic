@@ -1,20 +1,5 @@
-@echo off
-cd %pcd%
-:main
-title Micunymos Vista 1.1.0
-cls
-set /p btn=<dsk%user%
-if %resolution%==1 type bgd%user%1080p
-if %resolution%==2 type bgd%user%1440p
-if %resolution%==1 echo [65;0H &&type tsk%user%1080p
-if %resolution%==2 echo [88;0H &&type tsk%user%1440p
-echo [0;0H
-type desktop%user%
-if %return%==1 (
-	set return==0
-	call command.bat
-)
-echo [4%clr:~0,1%m[3%clr:~1,1%m
+set a=%1
+set b=%2
 set xclr=0
 if %clr:~0,1%==8 set xclr=7
 if %clr:~0,1%==0 set xclr=7
@@ -423,13 +408,5 @@ if %resolution%==2 (
 	if %crs%==199 echo [80;285H[4%xclr%m[3%xclr%mI
 	if %crs%==200 echo [80;300H[4%xclr%m[3%xclr%mI
 )
-echo [4%clr:~0,1%m[3%clr:~1,1%m
-choice /c xwasd0%btn% /n
-if not %crs%==1 if not %crs%==2 if not %crs%==3 if not %crs%==4 if not %crs%==5 if not %crs%==6 if not %crs%==7 if not %crs%==8 if not %crs%==9 if not %crs%==10 if not %crs%==11 if not %crs%==12 if not %crs%==13 if not %crs%==14 if not %crs%==15 if not %crs%==16 if not %crs%==17 if not %crs%==18 if not %crs%==19 if not %crs%==20 if %errorlevel%==2 set /a crs=%crs%-20 & goto main
-if not %crs%==1 if not %crs%==21 if not %crs%==41 if not %crs%==61 if not %crs%==81 if not %crs%==101 if not %crs%==121 if not %crs%==141 if not %crs%==161 if not %crs%==181 if %errorlevel%==3 set /a crs=%crs%-1 & goto main
-if not %crs%==181 if not %crs%==182 if not %crs%==183 if not %crs%==184 if not %crs%==185 if not %crs%==186 if not %crs%==187 if not %crs%==188 if not %crs%==189 if not %crs%==190 if not %crs%==191 if not %crs%==192 if not %crs%==193 if not %crs%==194 if not %crs%==195 if not %crs%==196 if not %crs%==197 if not %crs%==198 if not %crs%==199 if not %crs%==200 if %errorlevel%==4 set /a crs=%crs%+20 & goto main
-if not %crs%==20 if not %crs%==40 if not %crs%==60 if not %crs%==80 if not %crs%==100 if not %crs%==120 if not %crs%==140 if not %crs%==160 if not %crs%==180 if not %crs%==200  if %errorlevel%==5 set /a crs=%crs%+1 & goto main
-if %errorlevel%==6 call menu.bat
-act%user%.bat
-goto main
-;
+echo [%a:~0,2%m[%b:~0,2%m
+:eof

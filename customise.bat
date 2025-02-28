@@ -3,36 +3,6 @@ color 1f
 cls
 cd /d %~dp0
 set /p typ=<InstallType
-:usrmgr
-cls
-echo Micunymos Vista Installer
-echo ---------------------------
-echo Please choose an action to perform.
-echo Actions are: delete, add, colour.
-echo You may select the user to perform
-echo the action on later.
-echo ---------------------------
-cd /d %~dp0
-cd userlist
-dir
-set /p action=CHOICE: 
-cls
-echo Micunymos Vista Installer
-echo ---------------------------
-echo You may now choose the user
-echo to perform the actions on.
-echo ---------------------------
-dir
-set /p user=CHOICE: 
-if %action%==add goto add
-if %action%==delete goto deluser
-if %action%==colour (
-cd ..
-goto colour
-)
-goto usrmgr
-;
-:colour
 cls
 echo Micunymos Vista Installer
 echo ---------------------------
@@ -51,9 +21,35 @@ echo    6 = Light Blue
 echo    7 = White
 echo ---------------------------
 set /p clr=CHOICE: 
-echo %clr%>ColourScheme%user%
-goto exit
+echo %clr%>ColourScheme
+echo Press X to exit, or U to manage users
+choice /c XU /n
+if %errorlevel%==1 goto exit
+if %errorlevel%==2 goto usrmgr
 ;
+:usrmgr
+cls
+echo Micunymos Vista Installer
+echo ---------------------------
+echo Please choose an action to perform.
+echo Actions are: delete, add.
+echo You may select the user to perform
+echo the action on later.
+echo ---------------------------
+cd /d %~dp0
+cd userlist
+dir
+set /p action=CHOICE: 
+cls
+echo Micunymos Vista Installer
+echo ---------------------------
+echo You may now choose the user
+echo to perform the actions on.
+echo ---------------------------
+dir
+set /p user=CHOICE: 
+if %action%==add goto add
+if %action%==delete goto deluser
 goto exit
 ;
 :add
@@ -67,28 +63,31 @@ type bgd1440p>bgd%user%1440p
 type ColourScheme>ColourScheme%user%
 type desktop>desktop%user%
 type dsk>dsk%user%
-if %typ%==3 type tsk1080p>tsk%user%1080p
-if %typ%==3 type tsk1440p>tsk%user%1440p
+if %typ%==4 type tsk1080p>tsk%user%1080p
+if %typ%==4 type tsk1440p>tsk%user%1440p
 type act.bat>act%user%.bat
-goto eof
+goto exit
 ;
 :deluser
+echo Do you want to delete %user%???
+choice /c yn /n
+if %errorlevel%==1 (
 del %user%
-cd ..
+cd..
 del act%user%.bat
 del dsk%user%
 del bgd%user%1080p
 del bgd%user%1440p
 del desktop%user%
-if %typ%==3 del tsk%user%1080p
-if %typ%==3 del tsk%user%1440p
+if %typ%==4 del tsk%user%1080p
+if %typ%==4 del tsk%user%1440p
 del ColourScheme%user%
 del %user%
-goto eof
+)
+if %errorlevel%==2 echo No action was performed.
+goto exit
 ;
 :exit
 echo Press any key, to quit.
 pause >nul
-goto eof
 ;
-:eof

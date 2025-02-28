@@ -75,7 +75,6 @@ echo [7;0H
 set /p user=I Username: I 
 echo [9;0H
 set /p passwordmicunymos=I Password: I 
-%ist:~0,1%:
 cd %ist%
 if not exist ColourScheme echo 70>ColourScheme
 echo %passwordmicunymos%>%user%
@@ -85,8 +84,8 @@ type dsk>dsk%user%
 type desktop>desktop%user%
 type ColourScheme>ColourScheme%user%
 type act.bat>act%user%.bat
-if %itype%==3 type tsk1080p>tsk%user%1080p
-if %itype%==3 type tsk1440p>tsk%user%1440p
+if %itype%==4 type tsk1080p>tsk%user%1080p
+if %itype%==4 type tsk1440p>tsk%user%1440p
 cd userlist
 echo. >%user%
 goto res
@@ -144,9 +143,9 @@ if %errorlevel%==2 set resolution=2 &&goto setres
 ;
 :setres
 if exist options del options
-echo acpi^=^1>options
-echo logonbgd^=^1>>options
-echo resolution^=^%resolution%>>options
+echo acpi=^1>>options
+echo logonbgd=^1>>options
+echo resolution=%resolution%>>options
 goto final
 ;
 :final

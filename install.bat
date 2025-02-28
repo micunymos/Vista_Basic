@@ -28,6 +28,9 @@ echo .                                         .
 echo . Micunymos Vista Basic                   .
 echo .                                         .
 echo .                                         .
+echo . Micunymos Vista Developer Kit           .
+echo .                                         .
+echo .                                         .
 echo . Micunymos Vista Professional            .
 echo .                                         .
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -55,6 +58,9 @@ echo . ======================================= .
 echo . I Micunymos Vista Basic               I .
 echo . ======================================= .
 echo .                                         .
+echo . Micunymos Vista Developer Kit           .
+echo .                                         .
+echo .                                         .
 echo . Micunymos Vista Professional            .
 echo .                                         .
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,8 +73,38 @@ set itype=2
 goto i1
 )
 ;
-;
 :itype3
+cls
+title Install Micunymos Vista Developer Kit
+echo Micunymos Vista Installer
+echo ---------------------------
+echo Getting information . . . ~ 2 minutes remaining.
+echo ---------------------------
+echo Choose your preferred type of installation!
+echo ___________________________________________
+echo .                                         .
+echo . Micunymos Vista Text-Mode               .
+echo .                                         .
+echo .                                         .
+echo . Micunymos Vista Basic                   .
+echo .                                         .
+echo . ======================================= .
+echo . I Micunymos Vista Developer Kit       I .
+echo . ======================================= .
+echo .                                         .
+echo . Micunymos Vista Professional            .
+echo .                                         .
+echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+echo W - Up, S - Down, X - Select
+choice /c wsx /n
+if %errorlevel%==1 goto itype2
+if %errorlevel%==1 goto itype4
+if %errorlevel%==3 (
+set itype=3
+goto i1
+)
+;
+:itype4
 cls
 title Install Micunymos Vista Professional
 echo Micunymos Vista Installer
@@ -83,15 +119,18 @@ echo .                                         .
 echo .                                         .
 echo . Micunymos Vista Basic                   .
 echo .                                         .
+echo .                                         .
+echo . Micunymos Vista Developer Kit           .
+echo .                                         .
 echo . ======================================= .
 echo . I Micunymos Vista Professional        I .
 echo . ======================================= .
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo W - Up, X - Select
 choice /c wx /n
-if %errorlevel%==1 goto itype2
+if %errorlevel%==1 goto itype3
 if %errorlevel%==2 (
-set itype=3
+set itype=4
 goto i1
 )
 ;
@@ -115,7 +154,8 @@ echo Micunymos Vista Installer
 echo ---------------------------
 echo Installing files . . . ~ 1 minute remaining.
 echo ---------------------------
-if not %itype%==1 (
+if not %itype%==1 if not %itype%==3 (
+copy customise.bat %ist%
 %ist:~0,2%
 cd %ist%
 md userlist
@@ -144,7 +184,8 @@ echo You may customise the appearance of the system on the next screen.
 echo - Press any key, to proceed with the installation -
 pause >nul
 cd /d %~dp0
-if not %itype%==1 oobe.bat
+if %itype%==2 oobe.bat
+if %itype%==4 oobe.bat
 ;
 :exit
 echo Are you sure you want to exit this installer? [Y/N]

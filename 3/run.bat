@@ -1,2 +1,5 @@
 cd %prevcd%
-call %1
+set /p run=What program to call?^> 
+call .\%run%
+pause
+cd %pcd%

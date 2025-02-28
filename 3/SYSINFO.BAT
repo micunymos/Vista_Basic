@@ -9,7 +9,7 @@ echo I I  I\ \/ /I  I  Resolution: %resolution%                                 
 echo I I  I \__/ I  I  Acpi: %acpi%                                                  I
 echo I ****      ****                                                           I
 echo I                                                                          I
-echo I Version: 1.1.0                                                           I
-echo I Build: 120824d                                                           I
+echo I Version: 1.1.1                                                           I
+echo I Build: 241019a                                                           I
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 pause >nul

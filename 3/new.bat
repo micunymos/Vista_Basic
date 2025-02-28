@@ -1,2 +1,3 @@
+:new
 cd %prevcd%
-echo >%1
+echo %nul% > %~1

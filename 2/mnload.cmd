@@ -1,7 +1,7 @@
 @echo off
 cd /d %~dp0
 color 07
-title Micunymos Vista 1.0.0
+title Micunymos Vista 1.2.0
 :main
 set pcd=%CD%
 cd %pcd%
@@ -381,4 +381,5 @@ echo To fix this, try setting it again in the "options" file, or reinstall Micun
 echo Additional info:
 echo Stop 0x05, [no parameters]
 pause
+)
 )

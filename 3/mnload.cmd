@@ -1,7 +1,12 @@
 @echo off
 cd /d %~dp0
 color 07
-title Micunymos Vista 1.0.0
+title Micunymos Vista 1.1.0
+set e=%1
+if defined e (
+if "%e%"=="repair" goto repair
+if "%e%"=="criterror" goto criterror
+)
 :main
 set pcd=%CD%
 cd %pcd%
@@ -105,7 +110,7 @@ if not exist sleep.bat echo [31m[ERROR][0m SLEEP    [31mMISSING[0m!
 ping localhost -n 1 >nul
 if not exist edit.bat echo [31m[ERROR][0m EDIT     [31mMISSING[0m!
 ping localhost -n 1 >nul
-if not exist command.bat goto critstop
+if not exist command.bat set critstop=1 &&goto critstop
 echo [0;0H
 echo                                                                                                                .
 echo                                                                                                                .
@@ -330,7 +335,76 @@ call apl.bat
 mnlogon.bat
 goto main
 ;
+:repair
+set e=%2
+if "%e%"=="command" (
+	echo :main>command.bat
+	echo echo ^[0m>>command.bat
+	echo echo ^[0;0H>>command.bat
+	echo echo  __________________________________________________________________________________________________________>>command.bat
+	echo echo I- ^[33mTerminal^[0m -                                                                                             -I>>command.bat
+	echo echo I~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo I                                                                                                          I>>command.bat
+	echo echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~>>command.bat
+	echo :interpreter>>command.bat
+	echo cd %%prevcd%%>>command.bat
+	echo echo ^[4;0H>>command.bat
+	echo set /p exec=I ^[34m%%cd%% ^[33m$^[32m >>command.bat
+	echo cd %%pcd%%>>command.bat
+	echo if "%%exec%%" equ "clear" set return=1 ^& goto end>>command.bat
+	echo if "%%exec%%" equ "return" goto end>>command.bat
+	echo if "%%exec%%" equ "" goto main>>command.bat
+	echo call .\%%exec%%>>command.bat
+	echo goto main>>command.bat
+	echo :end>>command.bat
+	echo micunymos.bat>>command.bat
+)
+if "%e%"=="start" (
+	echo :menu>menu.bat
+	echo cd /d %~dp0>>menu.bat
+	echo if %%resolution%%==1 echo ^[60;0H>>menu.bat
+	echo if %%resolution%%==2 echo ^[83;0H>>menu.bat
+	echo echo _____________________________________________________________________>>menu.bat
+	echo echo I-                                                                 -I>>menu.bat
+	echo if %%resolution%%==1 echo ^[61;0H>>menu.bat
+	echo if %%resolution%%==2 echo ^[84;0H>>menu.bat
+	echo echo I- %%username%% ->>menu.bat
+	echo echo I*******************************************************************I>>menu.bat
+	echo echo I CHOICE: I                                                  I EXIT I>>menu.bat
+	echo echo *********************************************************************>>menu.bat
+	echo if %%resolution%%==1 echo ^[63;0H>>menu.bat
+	echo if %%resolution%%==2 echo ^[86;0H>>menu.bat
+	echo set /p menu=I CHOICE: I >>menu.bat
+	echo cd menu>>menu.bat
+	echo call .\%%menu%%>>menu.bat
+	echo cd ..>>menu.bat
+	echo micunymos.bat>>menu.bat
+	echo ;>>menu.bat
+)
+goto eof
+;
 :critstop
+cls
+if not defined criterror set criterror=0
 ping localhost -n 1 >nul
 if not exist STP (
 echo very bad. there is no error screen.
@@ -341,10 +415,17 @@ ping localhost -n 1 >nul
 if exist STP (
 color 1f
 type STP
+if %criterror%==0 (
+echo Micunymos Vista has shut down due to the manual trigger of a crash.
+echo This error can be replicated on versions 1.1.1 and above,
+echo by starting the system with "mnload criterror"
+)
 if %criterror%==1 (
 echo Micunymos Vista has now shut down because of a fatal error.
 echo This error indicates the DOS-based command processor's main executable is missing.
 echo To fix this, try searching for a replacement, or reinstall Micunymos Vista.
+echo Alternatively, you can try using the startup repair function.
+echo To start it, type "mnload repair command" into the command prompt in the install directory of Micunymos Vista.
 echo Additional info:
 echo Stop 0x01, [no parameters]
 pause
@@ -352,6 +433,8 @@ pause
 if %criterror%==2 (
 echo Micunymos Vista has now shut down because of a fatal error.
 echo This error indicates the Start Menu is missing.
+echo Alternatively, you can try using the startup repair function.
+echo To start it, type "mnload repair start" into the command prompt in the install directory of Micunymos Vista.
 echo To fix this, try searching for a replacement, or reinstall Micunymos Vista.
 echo Additional info:
 echo Stop 0x02, [no parameters]
@@ -365,3 +448,5 @@ echo Additional info:
 echo Stop 0x03, [no parameters]
 pause
 )
+)
+:eof

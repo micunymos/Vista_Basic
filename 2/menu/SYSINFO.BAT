@@ -10,6 +10,6 @@ echo I I  I \__/ I  I  Acpi: %acpi%                                             
 echo I ****      ****                                                           I
 echo I                                                                          I
 echo I Version: 1.2.0                                                           I
-echo I Build: 120824b                                                           I
+echo I Build: 200924a                                                           I
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 pause >nul

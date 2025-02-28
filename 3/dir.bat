@@ -1,2 +1,5 @@
 cd %prevcd%
-dir /w
+dir >temp
+more temp
+del temp
+pause

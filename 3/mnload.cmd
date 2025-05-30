@@ -1,7 +1,7 @@
 @echo off
 cd /d %~dp0
 color 07
-title Micunymos Vista 1.1.0
+title Micunymos Vista
 set e=%1
 if defined e (
 if "%e%"=="repair" goto repair
@@ -10,7 +10,7 @@ if "%e%"=="criterror" goto critstop
 :main
 set pcd=%CD%
 cd %pcd%
-mode 800
+mode con lines=63 cols=237
 type pwr
 echo [0;0H
 echo                                                                                                                .

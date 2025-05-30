@@ -1,9 +1,9 @@
 @echo off
 color 1f
 cls
-title Install Micunymos Vista
+title Install Micunymos Vista Home
 :main
-echo Micunymos Vista Installer
+echo Micunymos Vista Installer Home
 echo ---------------------------
 echo Starting installation . . . ~ 3 minutes remaining.
 echo ---------------------------
@@ -14,8 +14,8 @@ if %errorlevel%==2 goto exit
 ;
 :itype1
 cls
-title Install Micunymos Vista Text-Based
-echo Micunymos Vista Installer
+title Install Micunymos Vista Text-Mode
+echo Micunymos Vista Home Installer
 echo ---------------------------
 echo Getting information . . . ~ 2 minutes remaining.
 echo ---------------------------
@@ -25,10 +25,10 @@ echo . ======================================= .
 echo . I Micunymos Vista Text-Mode           I .
 echo . ======================================= .
 echo .                                         .
-echo . Micunymos Vista Basic                   .
+echo . Micunymos Vista Home Basic              .
 echo .                                         .
 echo .                                         .
-echo . Micunymos Vista Professional            .
+echo . Micunymos Vista Home Premium            .
 echo .                                         .
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo S - Down, X - Select
@@ -41,8 +41,8 @@ goto i1
 ;
 :itype2
 cls
-title Install Micunymos Vista Basic
-echo Micunymos Vista Installer
+title Install Micunymos Vista Home Basic
+echo Micunymos Vista Home Installer
 echo ---------------------------
 echo Getting information . . . ~ 2 minutes remaining.
 echo ---------------------------
@@ -52,10 +52,10 @@ echo .                                         .
 echo . Micunymos Vista Text-Mode               .
 echo .                                         .
 echo . ======================================= .
-echo . I Micunymos Vista Basic               I .
+echo . I Micunymos Vista Home Basic          I .
 echo . ======================================= .
 echo .                                         .
-echo . Micunymos Vista Professional            .
+echo . Micunymos Vista Home Premium            .
 echo .                                         .
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo W - Up, S - Down, X - Select
@@ -70,8 +70,8 @@ goto i1
 ;
 :itype3
 cls
-title Install Micunymos Vista Professional
-echo Micunymos Vista Installer
+title Install Micunymos Vista Home Premium
+echo Micunymos Vista Home Installer
 echo ---------------------------
 echo Getting information . . . ~ 2 minutes remaining.
 echo ---------------------------
@@ -81,10 +81,10 @@ echo .                                         .
 echo . Micunymos Vista Text-Mode               .
 echo .                                         .
 echo .                                         .
-echo . Micunymos Vista Basic                   .
+echo . Micunymos Vista Home Basic              .
 echo .                                         .
 echo . ======================================= .
-echo . I Micunymos Vista Professional        I .
+echo . I Micunymos Vista Home Premium        I .
 echo . ======================================= .
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 echo W - Up, X - Select
@@ -97,8 +97,8 @@ goto i1
 ;
 :i1
 cls
-title Install Micunymos Vista - Gathering Information
-echo Micunymos Vista Installer
+title Install Micunymos Vista Home - Gathering Information
+echo Micunymos Vista Home Installer
 echo ---------------------------
 echo Gathering information . . . ~ 1 minute remaining.
 echo ---------------------------
@@ -110,8 +110,8 @@ goto i2
 ;
 :i2
 cls
-title Install Micunymos Vista - Copying files
-echo Micunymos Vista Installer
+title Install Micunymos Vista Home - Copying files
+echo Micunymos Vista Home Installer
 echo ---------------------------
 echo Installing files . . . ~ 1 minute remaining.
 echo ---------------------------
@@ -134,12 +134,12 @@ goto i3
 ;
 :i3
 cls
-title Install Micunymos Vista
-echo Micunymos Vista Installer
+title Install Micunymos Vista Home
+echo Micunymos Vista Home Installer
 echo ---------------------------
 echo Finalising . . . ~ 0 minutes remaining.
 echo ---------------------------
-echo Micunymos Vista is now installed on your system.
+echo Micunymos Vista Home is now installed on your system.
 echo You may customise the appearance of the system on the next screen.
 echo - Press any key, to proceed with the installation -
 pause >nul

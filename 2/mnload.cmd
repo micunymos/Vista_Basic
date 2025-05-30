@@ -1,11 +1,11 @@
 @echo off
 cd /d %~dp0
 color 07
-title Micunymos Vista 1.2.0
+title Micunymos Vista
 :main
 set pcd=%CD%
 cd %pcd%
-mode 240
+mode con lines=63 cols=237
 type pwr
 echo [0;0H
 echo                                                                                                                .

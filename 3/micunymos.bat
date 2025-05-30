@@ -1,7 +1,7 @@
 @echo off
 cd %pcd%
 :main
-title Micunymos Vista 1.1.0
+title Micunymos Vista
 cls
 set /p btn=<dsk%user%
 if %resolution%==1 type bgd%user%1080p

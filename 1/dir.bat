@@ -1,6 +1,6 @@
 %prevcd:~0,2%
 cd %prevcd%
-for /r "%prevcd%" %%A in (*) do (
-	echo %%A
-)
+dir /b /w > temp
+type temp
+del /s /q temp >nul
 pause

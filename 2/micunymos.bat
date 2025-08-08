@@ -2,6 +2,7 @@
 color %clr%
 cd %pcd%
 :main
+cd %pcd%
 cls
 set /p btn=<dsk%username%
 if %resolution%==1 type bgd%username%1080p

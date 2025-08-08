@@ -1,4 +1,3 @@
 :new
-%prevcd:~0,2%
-cd %prevcd%
+cd /d %prevcd%
 echo. >%~1

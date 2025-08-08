@@ -1,6 +1,5 @@
 cls
-%prevcd:~0,2%
-cd %prevcd%
+cd /d %prevcd%
 call %*
 echo RETURNED FROM RUNNING %*
 pause

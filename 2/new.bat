@@ -1,3 +1,3 @@
 :new
-cd %prevcd%
-echo M6>%~1
+cd /d %prevcd%
+echo. >%~1

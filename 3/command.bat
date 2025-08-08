@@ -26,10 +26,10 @@ echo I                                                                          
 echo I                                                                                                          I
 echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 :interpreter
-cd %prevcd%
+cd /d %prevcd%
 echo [4;0H
 set /p exec=I [34m%cd% [33m$[32m 
-cd %pcd%
+cd /d %pcd%
 if "%exec%" equ "clear" set return=1 & goto end
 if "%exec%" equ "return" goto end
 if "%exec%" equ "" goto main

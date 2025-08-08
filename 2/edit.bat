@@ -2,8 +2,7 @@
 cls
 set LINES=0
 setlocal enabledelayedexpansion
-%prevcd:~0,2%
-cd %prevcd%
+cd /d %prevcd%
 set editfile=%~1
 for /f "tokens=*" %%a in (%editfile%) do set /a LINES+=1
 :edit

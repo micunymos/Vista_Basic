@@ -1,6 +1,4 @@
 :cd
-%prevcd:~0,2%
-cd %prevcd%
-cd %~1
+cd /d %prevcd%\%1
 set prevcd="%cd%"
 ;

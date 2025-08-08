@@ -1,5 +1,4 @@
 :make
-%prevcd:~0,2%
-cd %prevcd%
+cd /d %prevcd%
 md %1
 ;

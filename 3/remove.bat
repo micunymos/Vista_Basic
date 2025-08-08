@@ -1,3 +1,2 @@
-%prevcd:~0,2%
-cd %prevcd%
+cd /d %prevcd%
 rd %1

@@ -1,5 +1,4 @@
-cd %prevcd%
-set /p run=%cd% - run - ^> 
-call .\%run%
+cd /d %prevcd%
+call %*
+echo RETURNED FROM RUNNING %1
 pause
-cd %pcd%

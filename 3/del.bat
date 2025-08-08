@@ -1,6 +1,5 @@
 :del
-%prevcd:~0,2%
-cd %prevcd%
+cd /d %prevcd%
 cls
 del %1
 ;
